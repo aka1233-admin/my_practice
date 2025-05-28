@@ -1,0 +1,16 @@
+
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h2>List</h2>
+<h4>{{doc.airplane}}</h4>
+<h6>Source:{{doc.source}}</h6>
+<h6>Destinaation:{{doc.destination}}</h6>
+<h6>Date:{{doc.date}}</h6>
+<h6>Time:{{doc.time}}</h6>
+<h6>Duration:{{doc.duration}}</h6>
+<a href="/route?flight={{doc.name}}" class="btn btn-primary">View details</a>
+
+
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_rename": 1,
+ "autoname": "field:headquaters",
+ "creation": "2025-05-16 09:15:26.418465",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "founding_year",
+  "customer_care_number",
+  "headquaters",
+  "website",
+  "route"
+ ],
+ "fields": [
+  {
+   "fieldname": "founding_year",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Founding Year",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "customer_care_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Care Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "headquaters",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Headquaters",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "custom": 1,
+   "group": "Connections",
+   "link_doctype": "Airplane",
+   "link_fieldname": "airline"
+  }
+ ],
+ "modified": "2025-05-19 20:03:39.037354",
+ "modified_by": "Administrator",
+ "module": "Practice",
+ "name": "Airline",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
