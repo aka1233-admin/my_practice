@@ -7,6 +7,8 @@ from frappe.website.website_generator import WebsiteGenerator
 
 
 class AirplaneFligh(WebsiteGenerator):
+	def on_submit(self):
+		self.status = "Completed"
 	def on_update(self):
 		if self.has_value_changed("gate_number"):
 			enqueue(
@@ -14,10 +16,13 @@ class AirplaneFligh(WebsiteGenerator):
 				queue="default",
 				kwargs={"flight_date": self.date, "new_gate": self.gate_number}
 			)
+			
 
 	
 
-	def update_gate_number_in_tickets(flight_date, new_gate):
-		tickets = frappe.db.get_all('Airplane Ticket', filters={'date': flight_date})
+	def update_ticket_gate_numbers(flight_name, gate_number):
+		tickets = frappe.get_all("Airplane Ticket", filters={"flight": flight_name}, fields=["name"])
 		for ticket in tickets:
-			frappe.db.set_value('Airplane Ticket', ticket['name'], 'gate_number', new_gate)
+			ticket_doc = frappe.get_doc("Airplane Ticket", ticket.name)
+			ticket_doc.gate_number = gate_number
+			ticket_doc.save()

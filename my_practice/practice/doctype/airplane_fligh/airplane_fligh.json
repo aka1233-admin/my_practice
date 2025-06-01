@@ -23,6 +23,7 @@
   "destination_code",
   "is_published",
   "route",
+  "section_break_ijwi",
   "crew_members"
  ],
  "fields": [
@@ -129,6 +130,10 @@
    "fieldname": "gate_number",
    "fieldtype": "Data",
    "label": "Gate Number"
+  },
+  {
+   "fieldname": "section_break_ijwi",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
@@ -137,7 +142,7 @@
  "is_published_field": "is_published",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-20 09:57:22.860280",
+ "modified": "2025-05-31 20:37:50.911108",
  "modified_by": "Administrator",
  "module": "Practice",
  "name": "Airplane Fligh",

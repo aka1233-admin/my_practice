@@ -7,6 +7,28 @@ from frappe.model.document import Document
 class AirplaneTicket(Document):
 
     def validate(self):
+        total=sum([row.amount for row in self.payment_details])
+        if total != self.total_amount:
+            frappe.throw("Sum of all the payments amount must be equal the total amount and the ticket amount")
+        for row in self.payment_details:
+            if row.due_date < today():
+                frappe.throw(f"due date {row.due_date} must be today or future date")
+
+    def on_submit(self):
+        if self.reference_doctype == "Airplane Ticket":
+            ticket = frappe.get_doc("Airplane Ticket", self.reference_name)
+            for schedule in ticket.payment_details:
+                if schedule.status != "Paid" and schedule.amount == self.paid_amount:
+                    schedule.status = "Paid"
+                    schedule.reference = self.name
+            ticket.save()
+
+    def on_submit(self):
+        for payment in self.payment_details:
+            if not payment.status:
+                payment.status = "Pending"
+
+    def validate(self):
         # -----------------------
         # 1. Capacity Check
         # -----------------------
@@ -63,3 +85,5 @@ class AirplaneTicket(Document):
         self.set("add_ons", [])
         for item in unique_add_ons:
             self.append("add_ons", item)
+
+    

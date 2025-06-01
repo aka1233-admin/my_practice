@@ -29,7 +29,9 @@
   "duration_of_flight",
   "column_break_qssc",
   "departure_time",
-  "gate_number"
+  "gate_number",
+  "section_break_lsjo",
+  "payment_details"
  ],
  "fields": [
   {
@@ -111,6 +113,7 @@
    "fieldname": "flight_price",
    "fieldtype": "Currency",
    "label": "Flight Price",
+   "options": "Currency",
    "reqd": 1
   },
   {
@@ -189,13 +192,23 @@
    "fieldname": "gate_number",
    "fieldtype": "Data",
    "label": "Gate Number"
+  },
+  {
+   "fieldname": "section_break_lsjo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payment_details",
+   "fieldtype": "Table",
+   "label": "Payment Details",
+   "options": "Payment Schedule"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-20 09:57:48.641232",
+ "modified": "2025-06-01 15:57:44.604282",
  "modified_by": "Administrator",
  "module": "Practice",
  "name": "Airplane Ticket",

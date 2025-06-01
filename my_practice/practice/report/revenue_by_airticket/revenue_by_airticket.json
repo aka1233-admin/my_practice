@@ -1,5 +1,5 @@
 {
- "add_total_row": 0,
+ "add_total_row": 1,
  "add_translate_data": 0,
  "columns": [],
  "creation": "2025-05-19 16:36:15.324658",
@@ -10,7 +10,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2025-05-19 16:37:24.331239",
+ "modified": "2025-05-31 22:28:02.259257",
  "modified_by": "Administrator",
  "module": "Practice",
  "name": "Revenue by airticket",

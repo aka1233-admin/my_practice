@@ -4,6 +4,7 @@
 import frappe
 
 def execute(filters=None):
+	
 	columns = [
 		{
 			"fieldname": "airline",
@@ -16,6 +17,7 @@ def execute(filters=None):
 			"fieldtype": "Currency",
 			"options": "AED"
 		}
+
 	]
 
 	data = frappe.get_all(
@@ -24,5 +26,9 @@ def execute(filters=None):
 		filters={"docstatus": 1},
 		group_by="airline"
 	)
+	summary=[
+    {
+    }
+]
 
 	return columns, data
